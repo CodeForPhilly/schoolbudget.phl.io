@@ -1,0 +1,21 @@
+#sequence .crumbs li {
+    position: relative;
+    margin-right: 2em;
+}
+
+#sequence .crumbs li:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+#sequence .crumbs li:after {
+    border-left-color: #000;
+    border-width: 1em;
+    margin-top: -1em;
+}

@@ -1,0 +1,3 @@
+<?php
+
+RequestHandler::respond('bulldog');

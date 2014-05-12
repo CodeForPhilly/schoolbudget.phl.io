@@ -1,0 +1,167 @@
+body {
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #666666;
+    background-color: #fff;
+    width: 960px;
+    height: 700px;
+    margin: 10px 0 0 30px;
+}
+
+h1 {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a:link
+a:active,
+a:visited,
+a:hover { 
+    color: #326C73;
+    text-decoraation: none;
+} 
+
+form {
+    font-family: 'Merriweather', serif;
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 1.5em;
+}    
+
+.year-label {
+    color: #222;
+    font-weight: 900;
+}
+
+input[type=radio].css-checkbox {
+	display:none;
+}
+
+input[type=radio].css-checkbox + label.css-label {
+    padding-left:30px;
+    height:16px; 
+    display:inline-block;
+    line-height:16px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:16px;
+    vertical-align:middle;
+    cursor:pointer;
+
+}
+
+input[type=radio].css-checkbox:checked + label.css-label {
+	background-position: 0 -25px;
+}
+
+label.css-label {
+	background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_71baa45291540a59ebd20fbd83654c6b.png);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+    
+#credits {
+    clear: both;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    font-size: .9em;
+    color: #999;
+    padding: 30px 0 50px 0;
+    
+}
+
+#headline {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    color: #666666;
+}
+
+#main {
+    float: left;
+    width: 750px;
+}
+
+#sidebar {
+    float: right;
+    width: 200px;
+}
+
+#sequence {
+    width: 600px;
+    height: 110px;
+}
+
+#legend {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #ffffff;
+    padding: 0px;
+    list-style: none;
+}
+
+#legend li {
+    margin: 8px;
+    padding: 5px;
+}
+
+#sequence .crumbs {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.3em;
+    color: #FFFFFF;
+    list-style: none;
+    padding: 0px;
+    display: inline-block;
+}
+
+#sequence .crumbs li {
+    display: inline;
+    padding: 3px;
+    margin: 1px;
+    line-height: 2em;
+}
+
+#sequence .total {
+    display: none;
+    font-weight: bold;
+}
+
+#chart {
+    position: relative;
+}
+
+#chart path {
+    stroke: #fff;
+}
+
+#explanation {
+    position: absolute;
+    top: 260px;
+    left: 250px;
+    width: 250px;
+    text-align: center;
+    color: #666;
+    z-index: -1;
+}
+
+#percentage {
+    font-size: 2em;
+}
+
+#total {
+    font-size: 2.5em;
+}
