@@ -61,7 +61,8 @@
                 </div>
             </div>
             <div id="credits">
-                Created by Chris Alfano & Lauren Ancona | a <a href="http://codeforphilly.org/projects/sdp_online_budget_visualization">Code for Philly project</a>
+                <p><em>Note: Undistributed budgetary adjustments and gap closing reductions are distributed for the purposes of this chart.</em></p>
+                <p>Created by Chris Alfano & Lauren Ancona | a <a href="http://codeforphilly.org/projects/sdp_online_budget_visualization">Code for Philly project</a></p>
             </div>
         </div>
         <div id="sidebar">
