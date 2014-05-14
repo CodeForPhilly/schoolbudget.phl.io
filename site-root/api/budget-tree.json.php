@@ -5,7 +5,7 @@ $budgetClass = empty($_GET['normalized']) ? 'BudgetLine' : 'NormalizedBudgetLine
 // group by category
 $names = array();
 $hash = array();
-foreach ($budgetClass::getAllByWhere('CurrentTotal > 0') AS $Line) {
+foreach ($budgetClass::getAll() AS $Line) {
     $hash[$Line->FunctionClass][$Line->FunctionGroup][$Line->Function][] = $Line;
 
     $names[$Line->FunctionClass] = $Line->FunctionClassName;
