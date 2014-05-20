@@ -21,12 +21,12 @@ h3 {
     font-weight: bold;
 }
 
-a:link
+a:link,
 a:active,
 a:visited,
 a:hover { 
-    color: #326C73;
-    text-decoraation: none;
+    color: #609191;
+    text-decoration: none;
 } 
 
 form {
@@ -41,35 +41,21 @@ form {
     font-weight: 900;
 }
 
-input[type=radio].css-checkbox {
-	display:none;
+
+#share-buttons {
+    width: 200px;
+    padding-bottom: 50px;
+    display: block;
+    text-align: center;
+    float: right;
 }
 
-input[type=radio].css-checkbox + label.css-label {
-    padding-left:30px;
-    height:16px; 
-    display:inline-block;
-    line-height:16px;
-    background-repeat:no-repeat;
-    background-position: 0 0;
-    font-size:16px;
-    vertical-align:middle;
-    cursor:pointer;
-
-}
-
-input[type=radio].css-checkbox:checked + label.css-label {
-	background-position: 0 -25px;
-}
-
-label.css-label {
-	background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_71baa45291540a59ebd20fbd83654c6b.png);
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+#share-buttons img {
+    width: 23px;
+    padding: 3px;
+    border: 0;
+    box-shadow: 0;
+    display: inline;
 }
     
 #credits {
@@ -79,8 +65,7 @@ label.css-label {
     font-family: 'Merriweather', serif;
     font-size: .9em;
     color: #999;
-    padding: 30px 0 50px 0;
-    
+    padding: 30px 0 50px 0; 
 }
 
 #headline {
@@ -98,6 +83,12 @@ label.css-label {
 #sidebar {
     float: right;
     width: 200px;
+}
+
+#sidebar .note {
+    font-size: .8em;
+    padding: 10px;
+    line-height: 15px;
 }
 
 #sequence {
@@ -118,6 +109,7 @@ label.css-label {
     margin: 8px;
     padding: 5px;
 }
+
 
 #sequence .crumbs {
     font-family: 'Fjalla One', sans-serif;
@@ -154,6 +146,7 @@ label.css-label {
     left: 250px;
     width: 250px;
     text-align: center;
+    line-height: 20px;
     color: #666;
     z-index: -1;
 }
@@ -164,4 +157,5 @@ label.css-label {
 
 #total {
     font-size: 2.5em;
+    line-height: 1.5em;
 }
