@@ -179,7 +179,7 @@ if (!empty($_FILES['budget'])) {
     $distributeAmounts($gapClosingAmountsSchools, [
         ['FunctionGroup' => 'F31330']   // District Operated Schools - Instructional
         ,['FunctionGroup' => 'F31350']  // District Operated Schools - Instructional Support
-        ,['FunctionGroup' => 'F31620']  // District Operated Schools - Operational Support
+        ,['FunctionGroup' => 'F31620', 'Function != "F41038"']  // District Operated Schools - Operational Support
         ,['FunctionGroup' => 'F31360']  // District Operated Schools - Pupil - Family Support
     ]);
 
@@ -193,7 +193,7 @@ if (!empty($_FILES['budget'])) {
     // misc distributions
     $distributeAmounts(
         $extractLines(['Function' => 'F49000', 'ActivityCode' => '5221']) // Food Service > Allocated Costs
-        ,['FunctionGroup' => 'F31620', '(Function != "F41071" OR ActivityCode != "5221")'] // Operating Support group, except Transportation -- Regular Services > Allocated Costs
+        ,['FunctionGroup' => 'F31620', '(Function != "F41071" OR ActivityCode != "5221")', 'Function != "F41038"'] // Operating Support group, except Transportation -- Regular Services > Allocated Costs and Debt Service
     );
 
     $distributeAmounts(
