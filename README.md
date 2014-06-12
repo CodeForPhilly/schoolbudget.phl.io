@@ -6,3 +6,4 @@ Based on D3's Sequences sunburst example.
 
 For Users: http://schoolbudget.phl.io 
 For Developers: https://github.com/CfABrigadePhiladelphia/schoolbudget.phl.io
+http://codeforphilly.org/projects/Budget_Visualization
