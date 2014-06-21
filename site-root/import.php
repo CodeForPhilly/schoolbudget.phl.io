@@ -41,7 +41,7 @@ if (!empty($_FILES['budget'])) {
     } catch (QueryException $e) {
         // ignore
     }
-    
+
     $count = 0;
     while ($line = $reader->getNextRow()) {
         $BudgetLine = BudgetLine::create([
@@ -72,14 +72,27 @@ if (!empty($_FILES['budget'])) {
 
 
     // clone data to normalized table
-    DB::nonQuery(
-        'INSERT INTO `%s` SELECT * FROM `%s`'
-        ,[
-            NormalizedBudgetLine::$tableName
-            ,BudgetLine::$tableName
-        ]
-    );
-    
+    try {
+        DB::nonQuery(
+            'INSERT INTO `%s` SELECT * FROM `%s`'
+            ,[
+                NormalizedBudgetLine::$tableName
+                ,BudgetLine::$tableName
+            ]
+        );
+    } catch(TableNotFoundException $e) {
+        // auto-create table and try insert again
+        DB::multiQuery(SQL::getCreateTable('NormalizedBudgetLine'));
+
+        DB::nonQuery(
+            'INSERT INTO `%s` SELECT * FROM `%s`'
+            ,[
+                NormalizedBudgetLine::$tableName
+                ,BudgetLine::$tableName
+            ]
+        );
+    }
+
     DB::nonQuery('UPDATE `%s` SET Class = "NormalizedBudgetLine"', NormalizedBudgetLine::$tableName);
 
 
@@ -88,13 +101,13 @@ if (!empty($_FILES['budget'])) {
     $valueColumnsCurrent = ['CurrentOperating', 'CurrentGrant', 'CurrentCapital', 'CurrentOther', 'CurrentTotal'];
     $valueColumnsProposed = ['ProposedOperating', 'ProposedGrant', 'ProposedCapital', 'ProposedOther', 'ProposedTotal'];
     $valueColumns = array_merge($valueColumnsCurrent, $valueColumnsProposed);
-    
+
     // this method generates a where SQL from an array of one or more line conditions
     $generateWhere = function($conditions) {
         if (!is_array($conditions[0])) {
             $conditions = array($conditions);
         }
-        
+
         return '(' . implode(') OR (', array_map(function($conditions) {
             return implode(' AND ', NormalizedBudgetLine::mapConditions($conditions));
         }, $conditions)) . ')';
@@ -109,10 +122,10 @@ if (!empty($_FILES['budget'])) {
             }
             $Line->destroy();
         }
-        
+
         return $totals;
     };
-    
+
     // this method proportionally distributes amounts among lines matching the supplied conditions
     $distributeAmounts = function($amounts, $conditions) use ($generateWhere) {
         $columns = array_keys($amounts);
@@ -125,7 +138,7 @@ if (!empty($_FILES['budget'])) {
                 $totals[$column] += $Line->$column;
             }
         }
-        
+
         // second pass -- distribute amounts proportionally
         $newTotals = array();
         $defaultProportion = 1 / count($lines);
@@ -162,7 +175,7 @@ if (!empty($_FILES['budget'])) {
     // split up gap closing / undistributed budgetary adjustments for District Operated Schools and Administrative budget lines by SDP-estimated ratios
     $gapClosingAmountsSchools = array();
     $gapClosingAmountsAdministrative = array();
-    
+
     foreach ($gapClosingAmounts AS $column => $amount) {
         if (in_array($column, $valueColumnsCurrent)) {
             $gapClosingAmountsSchools[$column] = round($amount * 0.95183129854, 2); // 95.18% distribution of FY14 funds to schools
