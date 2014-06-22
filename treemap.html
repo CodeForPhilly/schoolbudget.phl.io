@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        {cssmin "treemap.css"}
+        <link rel="stylesheet" type="text/css" href="css/treemap.css">
     </head>
     <body>
         <form>
@@ -13,7 +13,7 @@
             <label><input type="radio" name="mode" value="capital"> Capital</label>
             <label><input type="radio" name="mode" value="other"> Other</label>
         </form>
-        <script src="{Site::getVersionedRootUrl('js/d3.min.js')}"></script>
-        {jsmin "treemap.js"}
+        <script src="js/d3.min.js"></script>
+        <script src="js/treemap.js"></script>
     </body>
 </html>

@@ -24,7 +24,7 @@ var div = d3.select("body").append("div")
     .style("left", margin.left + "px")
     .style("top", margin.top + "px");
 
-d3.json("/api/budget-tree.json", function(error, root) {
+d3.json("data/budget-tree-normalized.json", function(error, root) {
     var node = div.datum(root).selectAll(".node")
         .data(treemap.nodes)
         .enter().append("div")
