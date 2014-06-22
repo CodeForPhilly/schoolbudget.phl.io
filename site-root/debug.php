@@ -1,3 +1,0 @@
-<?php
-
-RequestHandler::respond('debug');
