@@ -117,7 +117,7 @@ function init() {
         $("[rel=tooltip]").tooltip();
     });
 
-    d3.json("/api/budget-tree.json?simple=1", function (root) {
+    d3.json("data/budget-tree-simple.json", function (root) {
 
         initialize(root);
         accumulate(root);
@@ -452,20 +452,20 @@ function updateResults(dept, cat, desc, page) {
                 document.th.append('');
 
                 if (page == 0) {
-                    // add parser through the tablesorter addParser method 
+                    // add parser through the tablesorter addParser method
                     $.tablesorter.addParser({
-                        // set a unique id 
+                        // set a unique id
                         id: 'money',
                         is: function (s) {
-                            // return false so this parser is not auto detected 
+                            // return false so this parser is not auto detected
                             return false;
                         },
                         format: function (s) {
-                            // format your data for normalization 
+                            // format your data for normalization
                             //console.log(s);
                             return s.replace(",", "");
                         },
-                        // set type, either numeric or text 
+                        // set type, either numeric or text
                         type: 'numeric'
                     });
 
@@ -486,8 +486,8 @@ function updateResults(dept, cat, desc, page) {
             window.scrollTo(0, $('#searchtitle').position().top - 60);
         },
         timeout: 1000 * 60 * 10,
-        error: function (jqXHR, status, errorThrown) { //the status returned will be "timeout" 
-            //do something 
+        error: function (jqXHR, status, errorThrown) { //the status returned will be "timeout"
+            //do something
             $('#working').activity(false);
             $('#debug').html = "There was a problem retrieving the data.<br>Error:  " + status + "<br>E:  " + errorThrown + "<br>";
         }

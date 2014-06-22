@@ -3,25 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>SDP Budget Visualizer</title>
-        {cssmin array(
-            "bulldog/tt.css",
-            "bulldog/bootstrap/bootstrap.css",
-            "bulldog/bootstrap/bootstrap-responsive.css",
-            "bulldog/budget-base.css",
-            "bulldog/budget-app.css"
-        )}
-        <script src="{Site::getVersionedRootUrl('js/bulldog/d3.v2.js')}"></script>
-        {jsmin array(
-            "bulldog/accounting.js",
-            "bulldog/jquery.js",
-            "bulldog/jquery.tablesorter.min.js",
-            "bulldog/jquery.activity-indicator.js",
-            "bulldog/bootstrap/bootstrap.js",
-            "bulldog/bootstrap/bootstrap-transition.js",
-            "bulldog/bootstrap/bootstrap-tooltip.js",
-            "bulldog/tt.js",
-            "bulldog/budgetvis.js",
-        )}
+        <link rel="stylesheet" type="text/css" href="css/bulldog/tt.css">
+        <link rel="stylesheet" type="text/css" href="css/bulldog/bootstrap/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bulldog/bootstrap/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="css/bulldog/budget-base.css">
+        <link rel="stylesheet" type="text/css" href="css/bulldog/budget-app.css">
+        <script src="js/bulldog/d3.v2.js"></script>
+        <script src="js/bulldog/accounting.js"></script>
+        <script src="js/bulldog/jquery.js"></script>
+        <script src="js/bulldog/jquery.tablesorter.min.js"></script>
+        <script src="js/bulldog/jquery.activity-indicator.js"></script>
+        <script src="js/bulldog/bootstrap/bootstrap.js"></script>
+        <script src="js/bulldog/bootstrap/bootstrap-transition.js"></script>
+        <script src="js/bulldog/bootstrap/bootstrap-tooltip.js"></script>
+        <script src="js/bulldog/tt.js"></script>
+        <script src="js/bulldog/budgetvis.js"></script>
     </head>
     <body onload="javascript:init()">
         <p id="chart"></p>
