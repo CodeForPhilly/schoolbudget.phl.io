@@ -1,15 +1,15 @@
 d3.json("/api/budget-tree.json?normalized=1", function(error, root) {
-    
+
     var totals = {
             current_total: 0,
             next_total: 0
         },
         leafCount = 0;
-    
+
     function _crawlChildren(children) {
         for (var i = 0, child; i < children.length; i++) {
             child = children[i];
-            
+
             if ('children' in child) {
                 _crawlChildren(child.children);
             } else {
@@ -19,19 +19,19 @@ d3.json("/api/budget-tree.json?normalized=1", function(error, root) {
             }
         }
     }
-    
+
     _crawlChildren(root.children);
     console.log('Tree -- found %o leafs', leafCount);
     console.log('Tree -- totals', totals);
 });
 
-d3.json("/api/budget-list.json?normalized=1", function(error, root) {
-    
+d3.json("data/budget-list-normalized.json", function(error, root) {
+
     var totals = {
         current_total: 0,
         next_total: 0
     };
-    
+
     for (var i = 0, line; i < root.length; i++) {
         line = root[i];
 
