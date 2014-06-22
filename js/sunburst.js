@@ -9,7 +9,7 @@ var colors = {
     'F21003': '#163033',    // School Budgets including Non-District Operated Schools
     'F31330': '#ADBF00',    // L_ District Operated Schools - Instructional
     'F41035': '#CFE600',    //    L_ Elementary K-8 Education
-    'F41063': '#DAEA46',    //    L_ Secondary Education    
+    'F41063': '#DAEA46',    //    L_ Secondary Education
     'F31350': '#BFD400',    // L_ District Operated Schools - Instructional Support
     'F31360': '#738000',    // L_ District Operated Schools - Pupil - Family Support
     'F31620': '#3A4000',    // L_ District Operated Schools - Operational Support
@@ -45,19 +45,19 @@ var arc = d3.svg.arc()
     .outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
 
 // Main function to draw and set up the visualization, once we have the data.
-d3.json("/api/budget-tree.json?normalized=1", function(error, root) {
+d3.json("data/budget-tree-normalized.json", function(error, root) {
     yearCurrent = root.yearCurrent;
     yearNext = root.yearNext;
 
     d3.select('#headline')
         .text(root.name);
-        
+
     d3.select('#yearCurrent')
         .text(yearCurrent);
-        
+
     d3.select('#yearNext')
         .text(yearNext);
-        
+
     d3.select('#budget-header')
         .style('visibility', '');
 
@@ -190,13 +190,13 @@ function mouseleave(d) {
 // the entire budget
 function setRootExplanation() {
     var title;
-    
+
     if (selectedYear == 'current') {
         title = 'Estimated ' + yearCurrent;
     } else {
         title = 'Proposed ' + yearNext;
     }
-    
+
     title += ' budget &mdash; ' + selectedFund + ' funds.';
 
     d3.select("#percentage")
@@ -227,7 +227,7 @@ function updateBreadcrumbs(nodeArray, percentageString, totalString) {
         crumbs = crumbsList.selectAll('li'),
         crumbsLen = crumbs.size(),
         i = 0, nodesLen = nodeArray.length, node;
-    
+
     for (; i < nodesLen; i++) {
         node = nodeArray[i];
         if (i < crumbsLen) {
@@ -239,7 +239,7 @@ function updateBreadcrumbs(nodeArray, percentageString, totalString) {
             crumbsList.append('li').text(node.name);
         }
     }
-    
+
     while (i < crumbsLen) {
         d3.select(crumbs[0][i++]).style("display", "none");
     }
@@ -259,7 +259,7 @@ function drawLegend(path) {
             legendLabels[d.code] = d.name;
         }
     });
-    
+
     d3.select('#legend')
         .selectAll('li')
         .data(d3.entries(legendLabels))
@@ -298,7 +298,7 @@ function arcTween(a) {
     };
 }
 
-// Add thousands separators 
+// Add thousands separators
 function numberWithCommas(n) {
     var parts=n.toString().split(".");
     return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>School District of Philadelphia: Budget Data Visualizer</title>
-        {cssmin "sunburst.css"}
+        <link rel="stylesheet" type="text/css" href="css/sunburst.css">
         <meta property="og:title" content="School District of Philadelphia: Budget Data Visualizer"/>
         <meta property="og:url" content="http://sdp-budget.poplar.phl.io/sunburst"/>
         <meta property="og:site_name" content="Code for Philly"/>
@@ -20,7 +20,6 @@
         </script>
     </head>
     <body>
-        {literal}
         <!-- Google Tag Manager -->
             <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-K4G748"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -30,25 +29,25 @@
             '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-K4G748');</script>
         <!-- End Google Tag Manager -->
-        {/literal}
+
         <header id="budget-header" style="visibility: hidden">
             <h1 id="headline"></h1>
             <div id="share-buttons">
                 <!-- Facebook -->
                 <a href="http://www.facebook.com/sharer.php?u=http://schoolbudget.phl.io/" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
-                 
+
                 <!-- Twitter -->
                 <a href="http://twitter.com/share?url=http://schoolbudget.phl.io/&text=School District of Philadelphia Budget Visualization" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a>
-                 
+
                 <!-- Google+ -->
                 <a href="https://plus.google.com/share?url=http://schoolbudget.phl.io/" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a>
-                 
+
                 <!-- Reddit -->
                 <a href="http://reddit.com/submit?url=http://schoolbudget.phl.io/&title=School District of Philadelphia Budget Visualization" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" /></a>
-                 
+
                 <!-- LinkedIn -->
                 <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://schoolbudget.phl.io/" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a>
-                 
+
                 <!-- Email -->
                 <a href="mailto:?Subject=School District Budget&Body=School%20District%20Budget%20Visualization%20 http://schoolbudget.phl.io/"><img src="http://www.simplesharebuttons.com/images/somacro/email.png" alt="Email" /></a>
             </div>
@@ -60,8 +59,8 @@
                     <label><input type="radio" name="fund" value="current.grant"> Grant    </label>
                     <label><input type="radio" name="fund" value="current.capital"> Capital    </label>
                     <label><input type="radio" name="fund" value="current.other"> Other</label>
-                </div>   
-                <div>    
+                </div>
+                <div>
                     <span class="year-label">Proposed <span id="yearNext"></span> budget:</span>
                     <label><input type="radio" name="fund" value="next.total"> Total    </label>
                     <label><input type="radio" name="fund" value="next.operating"> Operating    </label>
@@ -86,12 +85,11 @@
             </div>
         </div>
         <div id="sidebar">
-            
+
             <ul id="legend"></ul>
             <p class="note">Note: Undistributed budgetary adjustments and gap closing reductions are distributed for the purposes of this chart. <br><br> Source: <a href="http://webgui.phila.k12.pa.us/offices/o/open-data-initiative">SDP Open Data Initiative</a></p>
         </div>
-        <script src="{Site::getVersionedRootUrl('js/d3.min.js')}"></script>
-        {jsmin "sunburst.js"}
-        
+        <script src="js/d3.min.js"></script>
+        <script src="js/sunburst.js"></script>
     </body>
 </html>
